@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    /* flex-direction: row; //default */
+    /* flex-direction: row-reverse; ulta kardega row wise */
+    /* flex-direction: column;
+    flex-direction: column-reverse; */
+    /* justify-content: flex-end, space-between, space-evenly, space-arounf, center, you can set any;
+    sets alignment based on x axis */
+    justify-content: space-evenly;
+
+    /* align items deals with the y axis */
+    height: 90vh;
+    border: 10px solid black;
+    align-items: end;
+
+    /* very useful */
+    /* if no room then sets accordingly */
+    flex-wrap: wrap;
+    /* used with align-content: ; */
+    align-content: flex-start;
+    column-gap: 2em;
+    row-gap: 2em;
+
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    font-size: 7em;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#box1 {
+    /* can also be done for individual child
+      */
+    align-self: end;
+    background-color: hsl(0, 100%, 70%);
+    order: 1;
+    /* place at the end -1 place at the start */
+}
+
+#box2 {
+    background-color: hwb(68 8% 4%);
+}
+
+#box3 {
+    background-color: hsl(108, 83%, 50%);
+}
+
+#box4 {
+    background-color: hsl(228, 88%, 67%);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <h1>User information</h1>
+     <form action="./thankyou.html" method="get">
+        
+        <label for="inp-usr">Username: </label>
+        <input type="text" placeholder="Username" name="username" id="inp-usr"required>
+        <br> 
+        <label for="email"> Email: </label>
+        <input type="email" placeholder="Email" value="@gmail.com" name="email" id="email" disabled>
+        <br>
+        <label for="inp-pass">Password: </label>
+        <input type="password" placeholder="Password" name="password" id = "inp-pass" required>
+        <br>
+        <label for="male-input">Male</label>
+        <input type="radio" name="gender" value="ml" id="male-input" checked>
+        <label for="female-input">female</label>
+        <input type="radio" name="gender" value="fml" id="female-input">
+        <br>
+        <br>
+
+
+        <label for="dsa">Webd</label>
+        <input type="checkbox" name="hobbby" value="dsa" id="dsa" >
+        <label for="web-d">DSA</label>
+        <input type="checkbox" name="hobbby" value="web-d" id="web-d" checked disabled> 
+
+        <br>
+        <br>
+        <br>
+
+
+        <label for="city">City: </label>
+        <select name="city" id="cty">
+            <option value="dlh">Delhi</option>
+            <option value="doh">Doha</option>
+            <option value="mbi">Mumbai</option>
+            <option value="tz">Tezpur</option>
+            <option value="Ass" selected>Assam</option>
+        </select>
+
+        <br>
+        <br>
+        <input type="submit">
+
+
+    </form>
+</body>
+</html>

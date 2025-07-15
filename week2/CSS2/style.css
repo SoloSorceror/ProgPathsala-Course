@@ -1,0 +1,22 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.plot {
+    height: 100px;
+    width: 100px;
+    padding: 50px;
+    margin: 50px;
+    background-color: blanchedalmond;
+    border: 10px solid black;
+    border-radius: 30%;
+}
+.plot1 {
+    height: 100px;
+    width: 100px;
+    padding: 50px;
+    margin: 50px;
+    background-color: blanchedalmond;
+    border: 10px solid black;
+}

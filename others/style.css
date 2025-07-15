@@ -1,0 +1,50 @@
+button:hover {
+    font-size: 1.1em;
+    background-color: green;
+}
+
+button:active {
+    font-size: 1.1em;
+    background-color: red;
+}
+
+li:hover {
+    background-color: yellow;
+}
+
+li:not(:hover) {
+    background-color: grey;
+}
+
+/* #greeting p {
+    background-color: aliceblue;
+    display: none;
+} */
+
+#greeting:hover p {
+    display: block;
+}
+
+/* pseudo element :: */
+
+h1::first-letter {
+    font-size: 2em;
+    font-style: italic;
+}
+
+p::first-line {
+    background-color: grey;
+}
+
+p::selection {
+    color: greenyellow;
+    background-color: grey;
+}
+
+#fruits li::before {
+    content: "#$";
+}
+
+#fruits li::after {
+    content: "**"
+}
