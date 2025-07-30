@@ -1,6 +1,7 @@
 
 require("dotenv").config();
 
+
 const express = require("express");
 const { ProductModel } = require("./models/productSchema");
 require("./config/db"); // when we use require it does resolution -->wrap-->executes-->exports-->cache
