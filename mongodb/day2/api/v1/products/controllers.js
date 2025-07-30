@@ -163,6 +163,55 @@ const DeleteProductController = async (req, res) => {
     }
 }
 
+const listProductControllers = async (req, res) => {
+    try {
+        console.log("----Inside listProductControllers----");
+        const { limit, page, select = "title price quantity", q = "" } = req.query; // i have set default for select here ok
+
+        const selectedItems = select.split(",").join(" ");
+        const searchRegx = new RegExp(q, "ig"); // i means case insensitive and g means global
+
+        let limitNum = parseInt(limit);
+        if (limitNum <= 0 || Number.isNaN(limitNum)) {
+            limitNum = 4;
+        }
+        let pageNum = parseInt(page);
+        if (pageNum <= 0 || Number.isNaN(pageNum)) {
+            pageNum = 1;
+        }
+
+        const skipNum = (pageNum - 1) * limitNum;
+
+        const query = ProductModel.find();
+        //limit the number of items
+        query.skip(skipNum);
+        query.limit(limitNum);
+        query.select(selectedItems);
+        // query.where("title", searchRegx); // if i use this 2 times it will be treated as a or and will return by checking in both like say description so to use or
+        query.or([{ title: searchRegx }, { description: searchRegx }]);
+
+        const products = await query;
+
+        res.status(200).json({
+            isSuccess: true,
+            message: "Product List",
+            data: {
+                products,
+                skip: skipNum,
+                limit: Math.min(limitNum, products.length)
+            },
+        });
+
+    } catch (err) {
+        console.log("----Error in listProductControllers------", err.message);
+
+        res.status(500).json({
+            isSuccess: false,
+            message: "Internal Server error",
+            data: {},
+        });
+    }
+}
 
 
-module.exports = { createProductController, getAllProductController, UpdateProductController, DeleteProductController };
+module.exports = { createProductController, getAllProductController, UpdateProductController, DeleteProductController, listProductControllers };
