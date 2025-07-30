@@ -1,9 +1,13 @@
 const express = require("express");
-const { createProductController } = require("./controllers");
-const { createProductValidator } = require("./dto");
+const { createProductController, getAllProductController, UpdateProductController, DeleteProductController } = require("./controllers");
+const { createProductValidator, updateProductValidator } = require("./dto");
 const productRouter = express.Router();
 
 
-productRouter.post("/", createProductController, createProductValidator);
+productRouter.get("/", getAllProductController);
+productRouter.post("/", createProductValidator, createProductController);
+productRouter.patch("/:productId", updateProductValidator, UpdateProductController);
+productRouter.delete("/:productId", DeleteProductController);
+
 
 module.exports = { productRouter }

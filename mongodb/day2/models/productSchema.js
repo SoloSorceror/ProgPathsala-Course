@@ -1,30 +1,46 @@
 const mongoose = require("mongoose")
 
-const{Schema, model} = mongoose;
+const { Schema, model } = mongoose;
 
 const productSchema = new Schema({
-    title:{
-        type:String,
+    title: {
+        type: String,
         required: true,
         unique: true,
         trim: true,
     },
-    price:{
+    price: {
         type: Number,
         required: true,
-        min:1,
+        min: 1,
     },
     quantity: {
-        type:Number,
-        default:1,
+        type: Number,
+        default: 1,
     },
     description: {
-        type:String,
+        type: String,
     },
-},{
-    timestamps:true,
+}, {
+    timestamps: true,
     versionKey: false,
 });
 
+//default preferences ->runs validation when using following functions
+productSchema.pre("findOneAndUpdate", function () {
+    this.options.runValidators = true;
+    this.options.new = true;
+});
+productSchema.pre("updateOne", function () {
+    this.options.runValidators = true;
+    this.options.new = true;
+});
+productSchema.pre("updateMany", function () {
+    this.options.runValidators = true;
+    this.options.new = true;
+});
+
+
+
 const ProductModel = model("product", productSchema);
-module.exports = {ProductModel};
+module.exports = { ProductModel };
